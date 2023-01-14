@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Bolum 3</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <ul>
+            <li v-for="(product, index) in products" :key="product"> {{ product }} - {{ index }}</li>
+        </ul>
+        <button @click="products.push('Hoperör')">Ekle</button>
+        <hr>
+        <ul>
+            <li v-for="personel in persons">
+                <ul>
+                    <li v-for="(value, key, index) in personel"> <strong>{{ key }}</strong> : {{ value }} {{ index }}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+        <div v-for="(product, index) in products">
+            <h3> {{ product }} </h3>
+            <p> {{ index }} </p>
+        </div>
+        <hr>
+        <template v-for="(product, index) in products"> <!--template elementi vue js uzerinde render edilmez-->
+            <h3> {{ product }} </h3>
+            <p> {{ index }} </p>
+        </template>
+
+        <span v-for="i in 5"> {{ i }}</span>
+
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                products: ["Monitör", "Klavye", "Askı", "Masa"],
+                persons: [{
+                        name: "Gökhan",
+                        email: "gokhan@gkandemir.com"
+                    },
+                    {
+                        name: "Felakettin",
+                        email: "felo@gkandemir.com"
+                    },
+                    {
+                        name: "Defne",
+                        email: "defne@gkandemir.com"
+                    },
+                    {
+                        name: "İflasettin",
+                        email: "ifo@gkandemir.com"
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

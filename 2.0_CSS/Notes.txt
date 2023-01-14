@@ -1,0 +1,798 @@
+1)GİRİŞ
+    1.1) CSS Yazımı : 
+        -Inline: Sadece bir elementtin stil ozellikleri değiştirilecekse kod inline olarak yazılır.
+        -Internal: Yazılan kodlar sadece o sayfada kullanılacaksa CSS kodları internal olarak yazılır.
+        -External: Birden fazla sayfada css kodu çalışacaksa external olarak yazılır.   
+
+    1.2) Bir elemente birden fazla class ismi verilebilir.
+        <style>
+            .red{
+                color: red;
+            }
+            .f40{
+                font-size: 40px;
+            }
+        </style>
+        <p class="red f40">Ebubekir ÇEVİK</p>
+
+    1.3) !important /*Kodlara öncelik verir başka kodlar tarafından ezilemez*/
+
+2) SELECTOR(SEÇİCİLER)
+    2.1) ---Group Selectors--
+      -> (*) => tüm etiketler
+      -> (p) => tüm p etiketleri
+      -> (div p) => div içindeki tüm p etiketleri
+      -> (div,p) => tüm div ve tüm p etiketleri
+      -> (div>p) => üst etiketi div olan tüm p etiketleri
+      -> (p ~ div) => p ile aynı seviyede tüm div etiketleri
+      -> (p + div) => p etiketinden sonra gelen ilk div etiketi
+      -> (div.box) => class ı box olan tüm div etiketler
+
+    2.2) ---Attribute Selectors--
+      -> p[title]{  } //'title' attribute içeren tüm p etiketlerinini seçer
+      -> p[title="third paragraph"]{  } ////'title="third paragraph"' attribute içeren tüm p etiketlerinini seçer
+      -> p[title~="forth"]{  } // title attribute de 'forth' içeren p etiketlerini seçer
+      -> a[href^="http"]{  } // href attribute de ilk deger olarak 'http' içeren a ları seçer
+      -> a[href$="com"]{  } // href attribute de son deger olarak 'com' içeren a ları seçer
+      -> a[href="www.google.com"][target="blank"]{  } // href attribute de 'www.google.com' ve target attributunde  'blank' içeren a ları seçer
+      -> input[type="text"]{  } // text tipinde input ları seçer
+      -> input[type="button"]{  } // button tipinde input ları seçer
+
+    2.3) ---Pseudo Selectors
+    ->Pseudo Element  //Bir elementin ilk satırına işlem yapar(paragraf gibi). Pseudo Elementleri iki çift nokta ile yazılır.
+        --> p::first-line{ //p elementlerinin ilk satırı
+                font-weight: bold;
+                color: brown;
+                word-spacing: 2px;
+                letter-spacing: 1px;
+            }
+        --> p.about::first-line{ //classı "about" olan p etiketlerinin ilk satırı
+	            color:green;
+            }
+        --> p::first-letter{ //p elementlerinin ilk harfi
+	            font-size: 48px;
+            }
+        --> p::after{ //p elementinden sonra "-deneme" kelimesini ekler.
+	            content: "-deneme";	display: block;	background-color: yellow; padding: 10px;
+            }
+            
+            p::before{ //p elementinden once "-deneme" kelimesini ekler.
+	            content: "-deneme";	display: block;	background-color: yellow; padding: 10px;
+            }
+
+    ->Pseudo Class    //Bir elementin alt elelementlerine işlem yapar. Pseudo Classları tek çift nokta ile yazılır.
+        
+        --> ul li:first-child{ //ul altındaki li lerin ilki
+	            background-color: red;
+            }
+
+            ul li:last-child{ //ul altındaki li lerin sonuncusu
+	            background-color: red;
+            }
+
+        --> ul li:nth-of-type(even){ //ul altındaki çift li ler
+            	border: 2px solid green;
+            }
+
+            ul li:nth-of-type(odd){ //ul altındaki tek li ler
+            	border: 2px solid blue;	
+            }
+
+        -->a:link{ //a etiketine tıklanmadan once yazı rengi kırmızdır. Tıklandıktan sonra gri olur.  
+	            color: red;
+            }           
+
+            a:visited{ //Sayfa ziyaret edildiğinde etiketin yazı rengi gridir.         
+	            color:gray;
+            }           
+
+            a:hover{ // Mouse imleci ile etiket uzerine gelindiğinde yazı beyaz arka plan rengi yeşil olur.
+	            color:white;            
+	            background: green;
+            }           
+
+            a:active{ // Etikete tıklandığında yazı rengi yeşil, arkaplan rengi gold olur.           
+	            color:green;            
+	            background: gold;
+            }
+
+        --> span{ //span burada display: none
+            	display: none;
+            	background: yellow;
+            	padding: 20px;
+            }
+
+            div:hover span { //imlec ile div hover edildiğin display:block olur
+            	display: block;
+            }
+
+
+
+    2.4) ---inherit değeri
+        //CSS2 ile birlikte CSS özelliklerine inherit değeri atamamıza olanak sağlamaktadır. Tüm elementlere (kalıtsallık özelliği olmayanlar dahil) inherit değeri atayabiliriz. inherit değeri atadığımız element, üst elementin inherit atanan css ozelliklerini alacaktır. Bir örnek yapacak olursak:
+        -->.icerik {
+                border: 1px solid #000;
+            }
+            .bilgi {
+                border: inherit; //Farklı attributeler inherit edilebilir. color, font vs. Bu element ust elementin border ozelliğini alır.
+            }
+            <div class="icerik">
+                    Bu içeriği kenarlığı olacaktır
+                <div class="bilgi"> 
+                    Bu bilgi de kenarlık bilgisini üstten elementten alarak kenarlığı olacaktır. 
+                 </div>
+            /div>
+
+    2.5)  ---Divs
+        #section-one {
+	    	color: blue;
+	    	background-color: aquamarine;
+	    	width: 70%;
+	    	height: 200px;
+	    	overflow:hidden; //div den taşan kısımları gizler
+	    }
+    
+	    #section-two{
+	    	color: brown;
+	    	background-color: beige;
+	    	width: 30%;
+	    }
+
+    2.6) ---Colors
+        h2{
+			color: 	#FF6347;
+		}
+		
+		p{
+			background-color: rgba(255, 99, 71, 0.4)
+		}
+
+3) KONUMLANDIRMA
+    3.1) Float ve Clear
+            Float: Float bir elementi Normal Akışın dışına çıkarmak için kullanılan bir yöntemdir. Bir biri ardına sıralanmış elementlere float uygulandığında elementler eğer yeterli alan varsa yan yana dizilirler. Float Dinamik Göreceli Konumlandırma gibidir ve bu amaçla kullanılabilir.
+            Clear: Clear özelliği ile float uygulanmış element’den sonraki elementlere float etkisini durdurmamız mümkündür. Örneğin iki paragrafınız olsun ve bunlardan sadece ilkini float uygulanmış elementin yanına koymak istiyorsunuz, bu durumda ikinci paragrafa clear özelliği atadığınızda bu element float uygulanmış elementin altında konumlanacaktır.
+
+            #second {
+			background: blue;
+			float: right;
+		    }
+    3.2) Display 
+! inline elementlere width-height verilemez !, block elementlere verilir.
+
+    3.3)Position: CSS aynı zamanda HTML elementlerinin diğer elementlere göre konumunu belirlemenizi sağlar. Bir HTML elementini diğerinin altına ya da üstüne alabilir ve bir HTML elementi fazla büyükse ne yapılacağına karar verebilirsiniz.
+
+        Tüm elementler üst (top), alt (bottom), sağ (right) ve sol (left) özelliklerine sahiptir. Ancak bu özellikler CSS'deki position özelliği belirtilmemişse işe yaramayacaktır.
+        
+        3.3.1) static: Olması Gerektiği Gibi Bırakmak;
+            Eğer position CSS kodunu hiç kullanmadıysak HTML nesneleri olduğu gibi sıralanacaktır. Bu şekilde olursa HTML elementinin alt, üst, sağ ve sol özellikleri belirlenemez.
+        3.3.2)fixed: Sabitlemek
+            Bir HTML elementini tarayıcı ekranına sabitlemek. Kaydıracı (scroll) kullansanız bile o element orada yer alacaktır (hareket etmez)
+        3.3.3) relative: Normal Pozisyona Göre Konumlama
+            Bir HTML elementini sahip olduğu pozisyondan yukarı, aşağı, sağa ve sola doğru ayarlamamızı sağlar. Elementin kapladığı alan tarayıcı tarafından tutulmuştur, dolayısıyla bunda bir değişiklik olmaz. Ancak biz sağ, sol, alt ve üst tarafa doğru hareket ettirebiliriz.
+        3.3.4)absolute: Herhangi Bir Konum Belirleme
+            Herhangi bir elemente göre ya da element belirtilmediyse tüm HTML sayfasına göre yer alacağı konum piksel olarak ifade edilir. Örneğin H2 elementinin sayfanın başlangıç noktasının (0, 0) 100 piksel sağında ve 150 piksel altında (100, 150) olmasını istiyorsak:
+        3.3.5)Position: sticky kaydırma çubuklarını takip eder ve istenilen pozisyon yakalandığında nesneyi o noktada sabitler. Örneğin bir nesne için yukarıdan 0 konumuna geldiğimiz anda nesnenin sabitlenmesini isteyebiliriz. Genelde menüler için sticky postion kullanılır. 
+        3.3.6)z-index: Elementin Önceliğini Belirlemek
+        Nasıl Photoshop tarzı programlarda katmanlarla çalışılıyor ve katmanların sırası belirlenebiliyorsa, CSS'de de z-index özelliği ile bunu belirleyip bir HTML elementinin diğerinin üzerinde ya da altında görünmesini sağlayabiliriz.
+
+4)BOX MODEL
+    4.1) Margin: CSS margin özelliği elementin dışında boşluk oluşturmak için kullanılır. Margin özelliği ile HTML elementleri arasında boşluk oluşturabilirsiniz. Margin özelliği elementin border (kenar çizgisi) dışında boşluk oluşturur. CSS ile margin üzerinde tam kontrol sağlarsınız. Dilerseniz tüm kenarların boşluğunu, dilerseniz tek bir kenarın boşluğunu ayarlayabilirsiniz.
+    LİNK: https://huseyinkorbalta.com/css-dersleri-6-margin-kullanimi/
+        
+        4.1.1) Değer tanımlamaları;
+            auto : HTML elementinin dışında kalan boşluk kısımlarını tarayıcı tarafından otomatik olarak hesaplanır. CSS’in margin özelliği html elementlerin arasındaki mesafeyi ayarlamak için kullanıldığı kadar, elementleri sayfada ortalama (center) için de sıkça kullanılır.Bunun için margin özelliğinin auto değeri kullanılır.Auto değeri tarayıcıların dış boşlukları otomatik olarak algılamasını ve her iki yönden eşit boşluk bırakmasını sağlar.
+            Ölçü birimleri : Boşluk değeri px,em,rem gibi CSS ölçü birimleri ile kullanılır.
+            % : İçeren elementin genişliğinin yüzdesine göre boşluk oluşturur.
+            inherit : Parent elementin margin değerini alır.
+    
+            margin: 20px 30px 40px 80px;(margin-top, margin-right, margin-bottom, margin-left)
+            margin: 20px 30px 40px;(margin-top, margin-right ve margin-left, margin-bottom)
+            margin: 40px 50px; (margin-top ve margin-bottom, margin-right ve margin-left)
+            margin: 60px;(Bütün margin özelliklerini ifade eder.Yani margin-top: 60px; margin-bottom: 60px; margin-left: 60px; margin-right:        60px; ifadesine karşılık gelir.)
+    !)inline elemanlara sağdan ve soldan margin uygulanabilir. Aşağı ve yuka uygulanamaz.
+
+    4.2)Padding: CSS padding özellikleri, herhangi bir HTML öğesinin kenarları ile içeriği arasında kalan boşluğu oluşturmak için kullanılır. Bir öğenin her bir yanına ait(üst, sağ, alt ve sol) dolgusunu (padding) ayarlama özellikleri vardır.
+        padding: 20px 30px 40px 80px;(padding-top, padding-right, padding-bottom, padding-left)
+        padding: 20px 30px 40px;(padding-top, padding-right ve padding-left, padding-bottom)
+        padding: 40px 50px; (padding-top ve padding-bottom, padding-right ve padding-left)
+        padding: 60px;(Bütün padding özelliklerini ifade eder.Yani padding-top: 60px; padding-bottom: 60px; padding-left: 60px;padding-right: 60px; ifadesine karşılık gelir.)
+
+            4.2.3) box-sizing Özelliği: CSS width özelliği, öğenin içerik alanı ve kenarlık değerlerinin toplamı kadar bir alanı ifade eder. Yani, bir öğe width ile belirtilen genişliğe sahipse, o öğeye eklenen padding, aynı zamanda öğenin toplam genişliğine eklenecektir. Bu genellikle istenmeyen bir sonuçtur. Daha iyi anlamanıza yardımcı olabilmek için aşağıdaki örnekte, <div> öğesine 300 piksel genişlik verilmiştir. Bununla birlikte, <div> öğesinin gerçek oluşturulmuş genişliği 350 pik olacaktır (300px + 25px sol padding + 25px sağ padding)
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <style>
+                div.ex1 {
+                    width: 300px;
+                    background-color: yellow;
+                }
+
+                div.ex2 {
+                    width: 300px;
+                    padding: 25px;
+                    background-color: lightblue;
+                }
+            </style>
+            </head>
+            <body>
+
+                <div class="ex1">Bu div öğesi 300px genişlik değerine sahiptir.</div>
+                <br>
+
+                <div class="ex2">Bu div öğesi 300px genişliğinde olması gerekirken sol ve sağ padding değerleri neticesinde 350px olmuştur.</div>
+
+            </body>
+            </html>
+
+            Görüldüğü üzere altta bulunan <div> öğesini her ne kadar width özelliği ile 300 piksel’de tutmak istesekte sol ve sağda yapılan 25 piksellik padding değerleri neticesinde 350 piksel genişliğe sahip olacaktır. Bu gibi istenmeyen durumları box-sizing özelliği kullanarak engellenebilir. box-sizing özelliği elemanın genişliğini korumasına neden olur;  padding arttırırsanız, mevcut içerik alanı azalacaktır. Bir örnekle inceleyelim;
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <style>
+                div.ex1 {
+                    width: 300px;
+                    background-color: yellow;
+                }
+
+                div.ex2 {
+                    width: 300px;
+                    padding: 25px;
+                    box-sizing: border-box;
+                    background-color: lightblue;
+                }
+            </style>
+            </head>
+            <body>
+
+                <div class="ex1">Bu div öğesi 300px genişliğindedir.</div>
+                <br>
+
+                <div class="ex2">Bu div sol ve sağ padding değerleri 25 piksel eklenmiş olsada box-sizing ile genişliği 300px olarak korunmuştur.
+                </div>
+
+            </body>
+            </html>
+
+    4.3)Border: CSS border özelliği bir HTML elementinin kenar / sınır çizgisinin kalınlığını, şeklini, rengini ayarlamaya yarar. Bir HTML Elementinin 4 kenarına da çizgi çekilebilir. Bu çizgiler birbirinden bağımsız, farklı özelliklere sahip olabilir.
+
+        border: 1px solid red; ==> border-width: 1px; border-style: solid; border-color: red;
+
+        #first{
+			border-top-width: 1px; /*Kenarların border kalınlıkları farklı*/
+			border-right-width: 2px;
+			border-bottom-width: 3px;
+			border-left-width: 4px;			
+			
+			
+			border-top-style: solid; /*Kenarların border style leri farklı*/
+			border-right-style: dashed;
+			border-bottom-style: groove;
+			border-left-style: double;
+			
+			border-top-color: red; /*Kenarların border renkleri farklı*/
+			border-right-color: aqua;
+			border-bottom-color: bisque;
+			border-left-color: blue;
+			
+		}
+		#second{					
+			border-top: 2px solid blue;
+			border-top-left-radius: 15px; /*Herbir kenara farklı border radiusu verilebilir.*/
+			border-top-right-radius: 20px;
+			border-bottom-left-radius: 30px;
+			border-bottom-right-radius: 40px;
+		}
+		#third{
+			border: 3px solid green;
+			border-radius: 50%; /*Profil resimlerinde kullanılır*/ Daire çizer
+		}
+		
+		#msgbox{
+			background-color: lightgray;
+			border-left: 5px solid green;
+			margin: 10px;
+			padding: 20px;
+			color: white;
+		}
+
+    4.4) Box Models & Box Sizing
+       
+        4.4.1) Box Models : Css Box Model yani css kutu model, html 'de bulunan her bir nesnenin etrafında olan bir kutuyu temsil eder. Bu kutu modeli nesnelerin birbiri ile arasındaki mesafe (margin), kutu ile içerik arasındaki mesafe (padding) ve kutunun etrafındaki kenarlık (border) ile ilgili çalışmaları temsil eder. Elemetin sayfada kaplayacağı alan margin, border ve padding ile hesaplanır. Bunu hesaplayabilmek içinde box-sizing kullanılır.
+            FYI_Link_1: https://sadikturan.com/css/css-box-model/1327#:~:text=Css%20Box%20Model%20yani%20css%20kutu%20model%2C%20html%20'de%20bulunan,ile%20ilgili%20%C3%A7al%C4%B1%C5%9Fmalar%C4%B1%20temsil%20eder.
+            FYI_Link_2: https://www.webcebir.com/makaleoku.php?sayfa=98-css-kutu-box
+       
+        4.4.2) Box Sizing
+            content-box: Normal kabul halidir(Default değer). Genişlik veya yükseklik değeri içerik alanını içerir; border ve padding değerlerini içermez.
+            border-box: Genişlik veya yükseklik değeri padding ve border değerlerinide içerir. Margin değeri dahil değildir.
+
+5) Font&Icons&Text&List&Link_and_Button
+    5.1) Fonts: Font özellikleri, web   sayfamızdaki   metinlerin   font   ailesini, boyutunu, kalınlık ayarlarını, satırlar arası mesafeyi ve stilini değiştirmek için kullanılır. Bu özellikler: 
+       
+        5.1.1) font-family:  özelliği, bir metne ait font ailesini belirlemeye yarar. Bunu yaparak yazı tipimizi seçmiş oluruz. Bu özellik birden fazla font ailesi ismi içerebilir, her font ailesi ismi virgülle ayrılır. 
+           
+            p { 
+                font-family:  Verdana, Arial, Helvetica, sans-serif; 
+            }
+
+            Yukarıdaki   örnekte   tarayıcı   ilk   önce   Verdana   yazı   tipinin   tarayıcı   tarafından desteklendiğine bakacaktır. Desteklenmediği takdirde sırayla diğerlerini deneyecektir. 
+
+            h2{ 
+                font-family:  Georgia, "Times New Roman", serif; 
+            }
+
+            Bu örnekte ise görüldüğü üzere "Times New Roman" tırnak içine alınmıştır. Eğer bir font ailesinin adı bir kelimeden fazla ise tırnak işaretleri içine alınmalıdır.
+
+            NOT: Tek bir font kullanmak yerine birkaç alternatif font kullanmanız her zaman tavsiye edilir. Sitenizde özel fontları kullanmak isteyebilirsiniz. Tüm fontlar tüm bilgisayarlarda bulunmadığından (binlerce yazı tipi vardır ve çoğu ücretsiz değildir), CSS bir geri dönüşüm sistemi sunar. Tarayıcı tarafından görüntülenemeyen bir font kullanılmışsa web’in güvenilen fontlarından birini seçerek yazının sunulmasında problem çıkartmaz. Varsayılan olarak, her bilgisayarda, tablette, akıllı telefonda veya diğer web tarama özellikli cihazlarda önceden yüklenmiş birkaç yazı tipi bulunur. Her cihazda zaten yüklü olan bu yazı tiplerini, web sitelerimizde özgürce kullanabiliriz; Bu yazı tipleri “web-güvenli fontlar” olarak bilinir hale gelmiştir. Önce istediğiniz yazı tipini, sonra kullanılamıyorsa ilk dolduracak yazı tiplerini ve en son web güvenli fontlarından birini tercih etmelisiniz. Web güvenli fontları ;
+                -serif
+                -sans-serif
+                -cursive
+                -monotype
+                -fantasy
+        
+        5.1.2) font-size:  yazı  karakterlerinin,  dolayısıyla da metnin boyutunu   ayarlamaya   yarar. Boyutu piksel olarak " px " , yüzde olarak " % " ya da  " em " ile belirtebiliriz. 
+
+                p{font-size: 200%;} yuzde değeri sayfanın Default değeri olan 16px alıp, elementin font-size değerini 32px yapar ya da ust parent elemanın font-size değerinin yuzde değerini hesaplayıp yansıtır. Yuzde değeri yerine em değeride kullanılabilir.
+                    
+                    p{font-size: 200%;} == p{font-size: 2em;} /*2em elamanın font-size değerini 2 katı olarak ayarlayacaktır*/
+            
+                Em boyutu W3C tarafından önerilmektedir; Çünkü kullanıcı tarayıcıdan metin boyutlandırması yaptığında sayfamızda ki metinlerin boyutu da değişikliğe göre ufalıp büyüyebilecektir.
+
+                Mutlak boyut : Bu mutlak değerler, tarayıcı tarafından hesaplanan belirli font boyutlarına eşlenir. Mutlak boyut, metnin tarayıcı üzerinde fiziksel boyutu biliniyorsa kullanımı yararlıdır; xx-small, x-small, small, medium, large,    x-large, xx-large
+                
+                Göreli boyut : Etrafındaki öğelere göre boyutu ayarlar; larger, smaller
+                Yüzdeli Boyut : Bir yazı tipi boyutu yüzdelik değer olarak belirtebilirsiniz. Bu durumda bir üst öğenin yazı tipi boyutuna göre de boyutlandırma yapılmış olur.
+
+                em Ölçü Birimi : em birimi, üst öğenin yazı tipi boyutunun hesaplanan değerine dayalı göreceli bir birimdir. Bu, alt öğelerin yazı tipi boyutlarını ayarlamak için her zaman üst öğelerine bağımlı olduğu anlamına gelir.
+
+                Not: Bir yazı tipi boyutu belirtmezseniz, paragraflar gibi normal metin için varsayılan boyut 16 pikseldir (16 piksellik = 1em).
+
+        5.1.3) font-weight:  özelliği, fontun kalınlık, incelik değerini belirlemeye yarar. 100 (ince)...900 (kalın) arasında bir değer alabildiği gibi bold, bolder, normal  ve lighter  değerlerini de alabilir. 
+
+            p{ 
+                font-weight: bold; 
+            }
+
+        5.1.4) font-style:  Özelliği, metni eğik (italik), az eğik veya normal yapmak için kullanılır.
+
+                    p{ font-style:normal}/* Metin normal görünür. */
+ 
+                    p{ font-style:italic}/* Metin italik yani eğik yazı olarak görünür. */
+ 
+                    p{ font-style:oblique}/* Metin az eğik görünür. */
+
+        5.1.5) line-height: Özelliği, metin içindeki satırların arasındaki mesafeyi ayarlamak için kullanılır.
+               
+                p{line-height:25px;width:140px;} /*Satırlar arası mesafeyi 25 px yapar.*/
+
+        5.1.6) font: Kısaltma işlemini yaparken aşağıdaki söz dizimi kullanılır: 
+                
+                font: font-style-> font-weight-> font-size/line-height-> font-family 
+
+                p{
+                   font-weight: bold; 
+
+                   font-size: 16px; 
+
+                   line-height: 15px;
+
+                   font-family: verdana, sans-serif; 
+                }
+
+                Kısaltma olarak kullanılan kod ise tek satır:
+                
+                    p{font: bold 16px/15px verdana, sans-serif}
+
+        LİNK: https://www.webcebir.com/69-css-font-ozellikleri-dersi.html
+              https://www.yazilimbilisim.net/web/css/css-font-kullanimi/
+
+    5.2) Icons: Daha duzgun gorselleştirmeler yapabilmek için icon lar kullanılır. Kullanımı olarak hangi font kutuphanesi kullanılacaksa cdn eklentisi yada dosyaları sayfaya eklenmeli.
+
+        <i class="fas fa-ad"></i>
+        <i class="fas fa-spinner"></i>
+
+        LİNK: https://www.sadikturan.com/css/css-icon-kullanimi/1163
+
+    5.3) Text: Font ile Metin(Text) arasındaki fark; Font özellikleri metni oluşturan karakterlerini nasıl olacağını belirlerken, Metin(Text) özellikleri sayfadaki metinlerin düzenini kontrol eder. Metin özellikleri metin düzeni için çok avantajlı özellikler getirmiştir.
+
+        5.3.1) Text Biçimlendirme:
+            -text-indent: Paragrafların ilk cümlelerin soldan içeriye kaydırılması için kullanılan bir özelliktir.
+            -text-align: Bir elemntin diğerlerine göre hizasını berlilemek için kullanılır. Sadece metinler için kullanılmaz, diğer elementler içinde kullanılır.
+            -vertical-align: Bir elementin içeriğinin dikey hizalaması için kullanılır.
+                baseline : Orta(metin içeriğine göre)
+                sub : Altsimge
+                super : Üstsimge
+                top : Yukarı(elemente göre)
+                text-top: Yukarı (Metin içeriğine göre)
+                middle : Orta (Elemente göre)
+                bottom : Alt (Elemente göre)
+                text-bottom : Alt(Metin içeriğine göre)
+            -line-height: Satırlar arasındaki yüksekliği belirler. normal, pixel veya yüzdedeğerlerin den birini alabilir.
+            -word-spacing: Kelimeler arasındaki boşluk değerini belirler. Eksi değer alabilir.
+            -letter-spacing: Harfler arasındaki boşluk değerini belirler. Eksi değer alabilir.
+            -text-transform: Metnin Büyük-Küçük harf çevirmek için kullanılır.
+                uppercase(hepsini büyük harf yap)
+                lowercase(hepsini küçük harf yap)
+                capitalize(sadece baş harfleri büyük yap)
+            -text-decoration: Bu özellik metinlerimize özel işaretler koymamızı sağlar. Örneğin metinlerizinaltını çizmek gibi.
+        
+        5.3.2) Text Hizalama: Html sayfalarımızda yazıları hizalamak için text-align özelliğini kullanırız.
+            -text-align:left; => sola hizalanır. 
+            -text-align:center; => ortaya hizalanır. 
+            -text-align:right; => sağa hizalanır. 
+            -text-align:justify; => sağa ve sola hizalanır. 
+
+            Html' de Inline etiketler nasıl hizalanır ?
+                ** hizalama işlemi block etiketlere uygulanır. Eğer inline bir etiketleri için text-align özelliği işlevsel değildir. Eğer ki inline etiket grubunu hizalamak istersek bu durumda inline etiket grubunu bir block etiketi içine alıp hizalama işlemini yapabiliriz.
+
+                <div>
+                  <a href="#"> Link 1 </a>
+                  <a href="#"> Link 2 </a>
+                  <a href="#"> Link 3 </a>
+                </div>
+
+                div {
+                  text-align:right;
+                }
+
+                ** inline etiketlere direk hizalama özelliği ekleyememizin sebebi; inline etiketler satırda içerik kadar yer kaplarlar hizalama işlemi için tüm satırı kaplamaları gerekir.
+
+            * Text i kolonlama
+                -column-count: 3; /* text i 3 kolona boler */ /*Browserlara ve surumlere farklı şekilde yazılabilir*/
+			    -webkit-column-count: 3; /*opera chrome safari */ 
+			    -moz-column-count: 3;   /*mozilla*/
+
+                Kolonlar arası çizgi ekleme
+                -column-rule: 1px solid rgb(0,0,0,0.4);
+			    -webkit-column-rule: 1px solid rgb(0,0,0,0.4);
+			    -moz-column-rule: 1px solid rgb(0,0,0,0.4);
+
+            * Satır başı;
+                text-indent: 10px;
+            
+	5.4) Liste Biçimlendirme: 
+        ul {
+			list-style-type: none; //li lerin işaretlerini kaldırır
+			border: 1px solid #ddd;
+			padding: 0px;  //lilerin sağa oteli olmasını engelller
+		}
+
+		ul li {
+			border-bottom: 1px solid #ddd;
+			padding: 7px 12px;
+		}
+
+		ul li:last-child {
+			border-bottom: none;
+		}
+
+		ol {
+			background-color: #f1f1f1;
+			list-style-type: none;
+			padding: 10px 20px;
+			border-left: 5px solid red;
+		}	
+    
+    5.5) Link ve Buton Biçimlendirme
+
+    	.btn {
+			padding: 12px 30px;
+			border: none;
+			text-decoration: none;
+			font-size: 16px;
+			display: inline-block;
+		}
+
+		.primary {
+			background-color: #007bff;
+			color: white;
+		}
+
+		.primary:hover {
+			opacity: 0.7;
+		}
+
+		.secondary {
+			background-color: #6c757d;
+			color: white;
+		}
+
+		.secondary:hover {
+			opacity: 0.7;
+		}
+
+		.success {
+			background-color: #28a745;
+			color: white;
+		}
+
+		.success:hover { /* hover olduğunda çalışır */
+			opacity: 0.7;
+		}
+
+		.danger {
+			background-color: #dc3545;
+			color: white;
+		}
+
+		.danger:hover {
+			opacity: 0.7;
+		}
+
+		.warning {
+			background-color: #ffc107;
+			color: white;
+		}
+
+		.warning:hover {
+			opacity: 0.7;
+		}
+
+
+		.btn-xs {
+			padding: 8px 15px;
+			font-size: 12px;
+		}
+
+		.btn-sm {
+			padding: 10px 22px;
+			font-size: 14px;
+		}
+
+		.btn-md {
+			padding: 12px 26px;
+			font-size: 16px;
+		}
+
+
+		.btn-lg {
+			padding: 16px 30px;
+			font-size: 16px;
+		}
+
+		.btn-bg {
+			font-size: 40px;
+		}
+
+		.btn-block {
+			display: block;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+
+		.rounded {
+			border-radius: 50%;
+		}
+
+
+		.primary-outline {
+			background-color: white;
+			color: #007bff;
+			border: 1px solid #007bff;
+		}
+
+		.primary-outline:hover {
+			color: white;
+			background-color: #007bff;
+			border: 1px solid #007bff;
+		}
+
+
+		.secondary-outline {
+			background-color: white;
+			color: #6c757d;
+			border: 1px solid #6c757d;
+		}
+
+		.secondary-outline:hover {
+			color: white;
+			background-color: #6c757d;
+			border: 1px solid #6c757d;
+		}
+
+		.success-outline {
+			background-color: white;
+			color: #28a745;
+			border: 1px solid #28a745;
+		}
+
+		.success-outline:hover {
+			color: white;
+			background-color: #28a745;
+			border: 1px solid #28a745;
+		}
+
+		.danger-outline {
+			background-color: white;
+			color: #dc3545;
+			border: 1px solid #dc3545;
+		}
+
+		.danger-outline:hover {
+			color: white;
+			background-color: #dc3545;
+			border: 1px solid #dc3545;
+		}
+
+		.warning-outline {
+			background-color: white;
+			color: #ffc107;
+			border: 1px solid #ffc107;
+		}
+
+		.warning-outline:hover {
+			color: white;
+			background-color: #ffc107;
+			border: 1px solid #ffc107;
+		}
+
+6) SHADOW
+    Güzel bir Linkler: https://www.webcebir.com/246-css3-text-shadow-ve-box-shadow-golge-efekti-dersi.html
+                    http://zinzinzibidi.com/web_tasarim/css3/css_te_text_shadow_ve_box_shadow
+
+7) TRANSITION
+    Güzel bir Linkler: https://www.w3schools.com/css/css3_transitions.asp
+                       https://www.webcebir.com/310-css3-transition-gecis-efekti-kullanimi-dersi.html
+
+8) OBJECT FIT
+    Link: https://www.w3schools.com/css/css3_object-fit.asp
+
+9) OBJECT POSITION
+    Link: 
+
+10) TRANSFORM
+    Link: http://zinzinzibidi.com/web_tasarim/css3/css_te_transform
+
+11) RESPONSIVE
+
+    !!! head kısmına <meta name="viewport" content="width=device-width">  eklenmelidir. Yoksa responsive çalışmaz sayfa. Otomatik olarak ayarlar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

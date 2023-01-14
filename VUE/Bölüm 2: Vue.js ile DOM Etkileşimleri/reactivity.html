@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <button @click="counter++">Arttır</button>
+    <button @click="counter--">Azalt</button>
+    <button @click="secondCounter++">İkinci counter i arttir</button>
+    <hr>
+    <p>Counter: {{counter}} | {{secondCounter}}</p>
+    <p>{{result()}} | {{output}}</p>
+</div>
+
+
+<script type="text/javascript">
+	new Vue({
+	el : "#app",
+	data : {
+        counter:0,
+        secondCounter:0
+	},
+	methods : {
+        result: function(){ //sayfadaki template içindeki bir değer değiştinde template komple render olduğu için her değer değişimin calisir.
+            console.log("Method calisti..")
+            return this.counter > 10 ? "10 dan buyuktur": "10 dan kucuktur"
+        }
+	},
+	computed:{ //senkton calisir
+        output: function(){ // bu ise counter property si gibi kendisini etkileyen bir propertynin değeri değiştiğinde calisir. her değer değişiminde calismaz. computed kullanmak daha az maliyetli ve verimlidir
+            console.log("Computed calisti..")
+            return this.counter > 10 ? "10 dan buyuktur": "10 dan kucuktur"
+        }
+	},
+    watch: {// data icindeki property i izler. hangi data izlenecekse o datanın isminde function yazılmalı counter gibi. asenkron calisir
+        counter: function(value){ //value, counter in değerini anlık gosterir
+           //console.log(value) 
+           vm=this;
+           setTimeout(function(){
+            vm.counter = 0
+           }, 1500)
+        }
+    }
+});
+</script>
+
+
+</body>
+</html>

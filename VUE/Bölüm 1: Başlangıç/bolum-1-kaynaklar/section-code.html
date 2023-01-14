@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+	<!-- <p> {{ title }} </p> -->
+	<p v-once> {{ title }} </p>
+	<p> {{ hello() }}</p>
+	<a v-bind:href="link" target="_blank">Link</a>
+	<p v-html="blogLink"></p>
+</div>
+
+
+<script type="text/javascript">
+	new Vue({
+	el : "#app",
+	data : {
+		title : "Merhaba, ",
+		description : " hoşgeldin Gökhan Kandemir",
+		link:'https://www.google.com.tr/',
+		blogLink:'<a href="https://www.w3schools.com/">Blog Link</a>'
+	},
+	methods : {
+		// hello : function (){			
+		// 	return this.title + this.description
+		// }
+		hello : function (){	
+			this.title = 'Merhaba Ebubekir'		
+			return this.title
+		}
+	}
+});
+</script>
+
+
+</body>
+</html>

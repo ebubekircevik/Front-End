@@ -1,0 +1,22 @@
+!) projelerden npm modulu kaldırıldı. projeler çalıştırılmadan once npm install ile projelere npm modulu yuklenilmeli
+
+1) Sıfırdan proje oluşturmak için; npx create-react-app hello-react 
+  hello-react proje ismi
+
+2) Projeyi ayağa kaldırmak için 
+    npm run start
+
+3) kapsayıcı bir element i yoksa o component çalışmaz
+
+4) // state: componentler üzerinde değerinin değişme potansiyeli olan butun verileri tutan bir javascript objesidir.
+// state ani değiltirilmesi gereken alanlar için kullanılır. statte
+// değiştirdiğinde otomatik tekrar render edilir.
+
+5) Gereksiz render işlemleri yapılmamalı
+
+6) component içinde component fonksiyon oluşturma kısayolu: rfce + enter
+
+7) Routing
+  Routing Kutuphanesinin Kurulması: npm install react-router-dom
+
+8) 

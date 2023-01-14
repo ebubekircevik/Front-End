@@ -1,0 +1,2 @@
+https://medium.com/frontend-development-with-js/javascript-spread-kavram%C4%B1-f0ce705f141f
+https://muratdogan.medium.com/sen-javascriptin-bir-l%C3%BCtfusun-spread-operat%C3%B6r-extended-version-fa5de70beaeb

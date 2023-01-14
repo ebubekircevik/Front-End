@@ -1,0 +1,1 @@
+https://www.yusufsezer.com.tr/javascript-ajax/

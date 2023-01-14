@@ -1,0 +1,243 @@
+REACT; Tarayıcı üzerinde sanal dom yapısı oluşturur. Bu dom yapısı ile ilişkili kodları kullanarak, gerçekteki tarayıcı üzerindeki dom yapısının sadece istediğimiz bolumlerinin guncellenmesini sağlar.
+
+! dosyaların uluşturulma aşamasında html alanına react ve kaynak(public/scripts/app.js) scriptler eklenmeli
+
+1) Babel jsx soz dizimlerini çevirmenin yanında ES6 ile yazılan kodu ES5 çevirir.
+  -Babel Kurulumu
+    ! terminalde projenin bulunduğu aynı soz dizimi altında olduğundan emin olunmalı
+    1) npm init -y (package.json dosyası oluşturur. Butun sorulara yes demek için -y yazıldı. Npm i kurar.)
+    2) npm install --save-dev @babel/core @babel/cli (Babel i projeye kurar. Babel dosyalarını node_modules klasorune ekler);
+
+      (ilgili surumun yuklenmesi; npm install --save-dev @babel/core@7.10.5 @babel/cli@7.10.5)
+
+      Kurulu paket isimleri package.json dosyası altındaki devDependencies alanında belirtilir. Bu paketlerde node_modules klasoru altında yer alır. node_modules klasorunun silindiği durumda 
+        terminal alanından "npm install" komutu girilirse 
+      npm, devDependencies alanında yer alan paketleri tekrar yukler.
+
+      ! Eğitimde github a projeler node_modules klasoru yer almadan atılacak. Projeler local de çalıştırılmaya çalışıldığında "npm install" komutu çalıştırılıp "node_modules" klasoru proje içinde oluşturulmalı. 
+
+    3) Preset Kurulumu; (React(JSX) kodlarını ES5 e çevirir. Çevirme araçları yuklenir. Hangi ust seviye dilin ES5 çeviriliceği tanımlanır)
+        - npm install --save-dev @babel/preset-env (ilgili surumun yuklenmesi; npm install --save-dev @babel/preset-env@7.10.4)
+        - npm install --save-dev @babel/preset-react (ilgili surumun yuklenmesi; npm install --save-dev @babel/preset-react@7.10.4)
+
+    4) Ana dizin içerisinde .babelrc dosyası oluşturulup presetler tanımlanmalı (Babel in hangi presetleri kullandığı tanımlanmalı)
+        {
+          "presets": ["@babel/preset-env","@babel/preset-react"]
+        }
+
+    5) npx babel --help 
+        babel kodları bilgisini verir
+
+    6) npx babel [kaynak dosyası] --out-file=[hedef dosya] 
+    (kaynak dosyasındaki react kodlarını hedef dosyasına ES5 çevirerek atar)
+    Ornek;
+      npx babel src/app.js --out-file=public/scripts/app.js
+
+    7) Değişiklikleri anında yansıtır. Değişiklikleri izleyip yansıtır
+      npx babel [kaynak dosyası] --out-file=[hedef dosya] --watch
+      npx babel src/app.js --out-file=public/scripts/app.js --watch
+      
+
+2) projeler github tan alındığında localde çalıştırılmak istenirse
+    - babelrc dosyası oluşturulup, içeriği;
+      {
+          "presets" : ["@babel/preset-env","@babel/preset-react"]
+      }
+      şeklinde olmalı
+    - node_modules klasoru olmayacağı için dosya alındığında ternimal ekranından "npm install" komutu çalıştırılmalı
+ 
+3) .babelrc dosyası projeye eklemeli
+    Bir önceki dersimizde babel ayarlarını yaptık ve projeye .babelrc dosyasını ekledik. Bu aşamadan sonra derste hazırladığımız projeleri ders altından indirdiğinizde mutlaka .babelrc dosyasını ekleyip çalıştırınız aksi halde bu dosya projede olmadığından dolayı hata alacaksınız.
+
+    .babelrc dosyasının içeriği;
+
+    {
+        "presets" : ["@babel/preset-env","@babel/preset-react"]
+    }
+    İyi çalışmalar dilerim.
+
+4) Uygulamanın ilk çalıştırılması;
+    1) live-server public/index.html (dosya  yolu)
+    2) npx babel src/app.js --out-file=public/scripts/app.js 
+        //Altenatif; npx babel src/app.js --out-file=public/scripts/app.js --watch // değişiklikleri yansıtır
+
+    Bu komutlar ayrı olarak terminal ekranına da girilebilir. Yada package.json dosyasının içine de eklenebilir.
+    scripts alanına aşağıdaki gibi eklenebilir;
+
+      "start": "live-server public", //public dosyası altındaki html dosyasını çalıştırmak istediğimiz için public girildi
+      "babel":"npx babel src/app.js --out-file=public/scripts/app.js --watch"
+
+      Örnek;
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "live-server public", 
+        "babel":"npx babel src/app.js --out-file=public/scripts/app.js --watch"
+      }
+
+      Daha sonrada terminal ekranından;
+       npm run babel
+      komutu girilir.
+      
+      Ayrı bir terminalde de;
+        npm run start
+      komutu girilir.
+
+5) react emmet eklentisi için(intellisense) settings.json dosyasına 
+      "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+      }
+    şeklinde eklenmeli.
+
+6) Değişkene birden fazla element girildiyse bir kapsayıcı(container) element  olmak zorudan
+
+7) {} içindeki ifade expression ın değerini basar
+
+8) function yeni bir scope oluşturur fakat arrow function kendisine yeni bir scope oluşturmaz.
+
+9) Bir class a ait fonksiyonlar metot olarak isimlendirilir. Fakat bir class a ait olmayan fonksiyonlar yine fonksiyon olarak isimlendirilir.
+
+10) Geriye değer donduren fonksiyonlar bu "hello()" şekilde yazılmalı.
+    Geriye değer dondurmeyen fonksiyonlar bu "hello" şekilde yazılmalı. Referansı yazılmalı.
+
+11) arrow functionlar yeni bir scope oluş. fakat function keyword u yazılarak oluşturulan functionlar yeni bir scope oluşturur.
+
+12) WEBPACK Kurulumu
+  -)- npm install webpack --save-dev 
+      (npm install webpack@4.44.1 --save-dev ilgili sürüm)
+
+  -) npm install webpack-cli --save-dev 
+      (npm install webpack-cli@3.3.12 --save-dev ilgili sürüm)
+
+  -) configurasyonlar için webpack.config.js dosyası anadizine eklenip configurasyonlar gerçekleştirilmeli.
+
+      3.1-) webpack.config.js dosya içeriği
+      const path = require('path'); //çıkış dosyasına path verebilmek için node js modulu ekleniyor.
+
+      module.exports = {
+          entry: './src/index.js', // giriş dosyası. düzenlencek dosya path i
+          output: {
+              path: path.resolve(__dirname, 'dist'), // dist klasorunun path ini verir. __dirname değişkeni node js gelen modul kullanımı
+              filename: 'bundle.js' // dist kalsoru altındaki bundle.js dosyası (çıkış dosyası)
+          }
+      }
+
+  -) package.json dosyasına webpack komutlarının girilmesi
+    
+      "scripts": {
+        "webpack-dev": "webpack --mode development", //uygulama geliştirme aşamsında çalıştırılacak script kodu
+        "webpack-build": "webpack --mode production", 
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "live-server dist/",
+        "babel": "npx babel src/app.js --out-file=public/scripts/app.js --watch"
+      },
+
+12.1) Web DevServer Kurulumu: tek bir script üzerinden hareket eder
+
+    1-) npm i webpack-dev-server  --save-dev
+       npm i webpack-dev-server@3.11.0  --save-dev (ilgili sürüm)
+
+    2-) configurasyonlar için webpack.config.js dosyası anadizine eklenip configurasyonlar gerçekleştirilmeli.
+
+      const path = require('path');
+
+      module.exports = {
+          entry: './src/index.js',
+          output: {
+              path: path.resolve(__dirname, 'dist'),
+              filename: 'bundle.js'
+          },
+          devServer: {
+              contentBase: path.resolve(__dirname, 'dist'),
+              port: 9000
+          }    
+      }
+
+    2.3-) yeni package.json düzenlemesi
+      "scripts": {
+        "webpack-build": "webpack --mode production", //uygulama yayınlama esnasında çalıştırılı. sıkıştırılan script dosyasını oluşturur.
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack-dev-server --open", //uygulama üzerinde çalışırken çalışıtırılır. open komutu dosyayı browser üzerinde açar. sıkıştırılan dosyayı klasor altında oluşturmaz memory de tutar.
+        "babel": "npx babel src/app.js --out-file=public/scripts/app.js --watch"
+      },
+
+12.2) Npm üzerinden React dosyalarının projeye eklenmesi(React Kurulumu)
+    1-) npm i react
+        npm i react@16.13.1 (ilgili sürümün yüklenmesi)
+
+    2-) npm i react-dom
+        npm i react-dom@16.13.1 (ilgili sürümün yüklenmesi)
+
+    3-) kaynak scriptine dosyalar eklenmeli
+        
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+
+!! webpack, jsx söz dizimlerini dönüştürmez. bunun için babel gerekli.
+
+12.3) We ile Babel ayarları: webpack.config.js dosyasında modul > rule altında bu ayarlar yapılır.
+
+      1-) babel-loader yuklenmeli
+      KOMUT: npm i babel-loader --save-dev
+
+      //webpack.config.js son hali
+      const path = require('path');
+
+      module.exports = {
+          entry: './src/app.js',
+          output: {
+              path: path.resolve(__dirname, 'dist'),
+              filename: 'bundle.js'
+          },
+          devServer: {
+              contentBase: path.resolve(__dirname, 'dist')
+          },
+          module: {
+              rules: [
+                  {
+                      test: /\.js$/,
+                      loader: 'babel-loader',
+                      exclude: /node_modules/
+                  }
+              ]
+          }       
+      }
+
+      2-) .babelrc dosyasında react presetleri eklenmeli
+
+12.4) Component Dosyalarının Eklenmesi; her bir component ayrı bir js dosyası olarak oluşturulup,
+      - import React from 'react'; 
+        React eklentisi eklenir,
+      
+      - export default Header;
+        şeklinde dışarıya export edilir.
+
+      - import Header from './component/Header';
+        daha sonra ana js dosyasına içine şeklinde import edilir.
+
+12.5) Webpack ile SCSS Kullanımı
+      - webpack.config.js dosyası içine rule eklenir
+      - npm install css-loader style-loader --save-dev komutu ile css modulleri yuklenir.
+
+      - sıkıştırılacak dosyasının içerisine aşağıdaki şekilde eklenir 
+        import './styles/style.scss';
+        sıkıştırılma sonunda css kodları da sıkıştırılan script dosyasının içine eklenir.
+
+        12.5.1) sass kullanımı
+                - webpack.config.js dosyası içine rule eklenir
+                - npm install sass-loader --save-dev komutu ile css modulleri yuklenir.
+                - scss dosyalarının css dosyalarına donusturulmesi gerekiyor. bunun içinde bir yuklenmesi gerekiyor 
+                  npm i node-sass --save-dev komutu ile yuklenebilir.
+
+12.6) Bootstrap Kutuphanesinin Eklenmesi
+
+      - npm i bootstrap ile yuklenir.(--save-dev denilmedi. cunku proje yayınladığında bootstrap kaynak dosyaları ile yayınlanmak isteniyor.)
+
+
+
+
+
+
+
+
+
+

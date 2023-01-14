@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="/Home/Register"> <!--form içerisindeki verileri action alanındaki adrese gonderir-->
+        <label for="name">Ad</label>
+        <input type="text" placeholder="Adınızı Giriniz" id="name" required><br><br>
+        <label for="lastname">Soyad</label>
+        <input type="text" placeholder="Soyadınızı Giriniz" id="lastname" required><br><br>
+        <label for="mail">Eposta</label>
+        <input type="email" id="mail" required><br><br>
+        <label for="rememberMe">Beni hatırla</label>
+        <input type="checkbox" id="rememberMe"><br><br>
+        <label for="male">Erkek</label>
+        <input type="radio" id="male" name="gender">
+        <label for="female">Kadın</label>
+        <input type="radio" id="femlae" name="gender">
+        <p>Hobiler</p>
+        <label for="cinema">Sinema</label>
+        <input type="checkbox" id="cinema">
+        <label for="sport">Spor</label>
+        <input type="checkbox" id="sport">
+        <label for="readBook">Kitap Okumak</label>
+        <input type="checkbox" id="readBook"><br><br>
+        <select name="sehir" id="city">
+            <option value="istanbul">İstanbul</option>
+            <option value="ankara">Ankara</option>
+        </select>
+        <br><br>
+        <select multiple name="sehirler" id="cities">
+            <option>Istanbul</option>
+            <option>Ankara</option>
+            <option>Izmir</option>
+        </select>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+Vue js stateleri "Central Store" içerisinde tutar ve yonetir
+
+1) Vuex kutuphanesinin yuklenmesi;
+    "npm install --save vuex"
+    !) save denilmesinin sebebi package.json dosyası altındaki dependencies alanına vuex in eklenmesi
+    !) "npm install --save vuex" komutu calismaz ise "npm install --save vuex --force" denenebilir
+
+2) Vuex yuklenmesi hatası alındığında buraya bak; https://programmerah.com/solved-npm-install-vuex-error-npm-err-code-eresolve-50381/
+    versiyon belirterek yukle: "npm install vuex@3.0.1 --save"

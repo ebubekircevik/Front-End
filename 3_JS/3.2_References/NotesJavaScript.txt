@@ -1,0 +1,796 @@
+--Değişkenler
+1) Javascript te kodlar yukarıdan aşağı çalışır
+2) Değişkene atılan değere göre değişkenin tipi belirlenir.
+    var age; 
+    console.log(age);
+    var age=27;
+    console.log(age);//Tipi number olduğu için ekrana mavi renkle basar
+    console.log(typeof(age))
+    var age="27";
+    console.log(age);//tipi string olduğu için ekrana gri renkle basar
+    console.log(typeof(age))
+3) Değişkenin adi sayı ile baslayamaz (1sayı)
+4) Komut isimleri ile tanımlama yapılamaz (for, switch)
+5) Javascript case duyarlıdır(buyuk kucuk harf duyarlıdır)
+6) var, let, const
+    let: var dan farkı, scop farkı vardır
+    const: değer bir kere atanır değiştirilemez
+--Değişken Türleri
+1)Primite
+    string, number, boolean, null, undefined
+2)Reference
+    //Array
+        let names = ["Ali", 'Mehmet'];
+        console.log(typeof(names));
+
+    //Object
+        let person={
+        name:"Ebubekir",
+        yas:25
+        }
+
+        console.log(person);
+        console.log(typeof(person));
+    //Function
+        var Selam = function(){
+            console.log('Hello !')
+        }
+        Selam();
+        console.log(typeof(Selam))
+
+--Tür Dönüşümü
+
+        let num1 = '5';
+        let num2 = '10';
+        let total= num1+num2;
+        console.log(total)
+        console.log(typeof total)
+
+    //string to number
+        let num1 = Number('5');
+        let num2 = Number('10');
+        let total= num1+num2;
+        console.log(total)
+        console.log(typeof total)
+
+    //number to string
+        let val = String(10);
+        console.log(typeof val)
+        
+    //bool to string
+        val = String(true);
+
+    //array to String
+        val = String([14,2,3]);
+
+    //toString()
+        val = (10).toString();
+
+    //number to bool    
+        var = Number(true); //var=1
+        var = Number(false);//var=0
+        var = Number(Null);//var=0
+        var = Number('A');//var=NaN(Not a number)
+        var = Number([1, 2, 3, 4]]);//var=NaN
+    
+    //parseInt
+        var = parseInt('10');//var=10
+        var = parseInt('10.5');//var=10 cunku 10.5 bir ondalıklı bir sayı olduğu için tam sayıya çevirdi
+        var = parseFloat('10.5'); //var=10.5
+
+--Operatorler
+
+    1)Matematiksel operatörler
+        var a = 5 + 6;	// toplama operatörü
+        var b = 5 - 6;	// çıkarma operatörü
+        var c = 5*6;	// çarpma operatörü
+        var d = 5/6;	// bölme operatörü
+        var e = 5%6;	// mod alma operatörü
+        var f = ++a;	// önden 1 arttırma operatörü, a'nın değerini 1 arttırır, sonra bu değeri f'ye atar.
+        var g = a++;	// sondan 1 arttırma operatörü a'yı g'ye atar, sonra a'nın değerini 1 arttırır.
+        var h = --a;	// önden 1 eksiltme operatörü a'nın değerini 1 eksiltilir, sonra bu değeri h'ye atar.
+        var i = a--;	// sondan 1 eksiltme operatörü a'yı i'ye atar, sonra a'nın değerini 1 eksiltir.
+
+    2)Atama operatörleri
+        var a;
+        a = 0;	// normal atama
+        a += 6;	// toplayarak atama. a = a+6'ya denk.
+        a -= 6;	// çıkararak atama. a = a-6'ya denk.
+        a *= 6;	// çarparak atama. a = a*6'ya denk.
+        a /= 6;	// bölerek atama. a = a/6'ya denk.
+        a %= 6;	// mod alarak atama. a = a%6'ya denk.
+
+    3) Karşılaştırma operatörleri
+        var a = 5, b = "5";
+        var c = a == b;	// a ile b'nin değerleri eşit mi? burada c'ye true değeri atanır.
+        c = a === b;	// a ile b'nin değerleri ve türleri aynı mı? c'nin değeri false olur.
+        c = a != b;	// a ile b eşit değil mi?
+        c = a > b;	// a, b'den büyük mü?
+        c = a < b;	// a, b'den küçük mü?
+        c = a >= b;	// a, b'den büyük veya b'ye eşit mi?
+        c = a <= b;	// a, b'den küçük veya b'ye eşit mi?
+
+    4)Mantıksal operatörler
+        var a = true, b = false;
+        var c = a&&b;	// a ve b'nin ikisi de true ise true, aksi hâlde false üretir.
+        c = a||b;	// a ve b'nin en az birisi true ise true, aksi hâlde false üretir.
+        c =!a;		// a'nın değeri true ise false, false ise true üretir.
+
+    5)Koşul operatörü
+        var a = true;
+        var c = a ? "a true" : "a false";
+        Bu örnekte a ? "a true" : "a false" ifadesi, a'nın tuttuğu değer true ise a true değerini a'nın tuttuğu değer false ise a false değerini tutar.
+
+--Date Object
+    1)Get Methods
+        let date = new Date();
+        console.log(date);
+        console.log(date.getDate);
+        console.log(date.getDay);
+        console.log(date.getFullYear);
+        console.log(date.getMonth);
+        console.log(typeof date)
+    2)Set Methods  
+        let date = new Date(); 
+        date.setDate(20);
+        date.setFullYear(30)
+        console.log(date)
+        
+    console.log(date.getFullYear()-birthday.getFullYear())
+
+--String Metotları
+    1)Template Literals
+        var fullName = "Ebubekir Çevik", city = "Istanbul" ;
+        let person = `my name is ${fullName} and I am from ${city}`;
+        //let person = `my name is ${fullName} and I am from ${city} and I'm ${(2020-age) > 18 ? "over than 18 " : "under than 18"} `;
+        console.log(person);
+
+--Array
+    1) let names = ["bekir", "mehmet"];
+
+        console.log(names);
+        console.log(typeof(names));
+    2)let mix = ["bekir", 1, null, undefined,["cinema", "movie"]]
+        console.log(mix);
+    3)set array item
+        mix[mix.length] = "araba";
+    4)add array item
+        mix.push(1380);
+        mix.unshift(50) //en başa ekler
+    5)indexOf
+        console.log(mix.indexOf(1380))
+    
+--Object Literals
+    1)
+        var val;
+        
+        let person = {
+        
+                firstName : 'Ebubekir',
+        
+                lastName : 'Çevik', 
+        
+                age : 25,
+        
+                hobbies : ["music", "game"],
+        
+                adress : {
+        
+                        city : 'Istanbul',
+        
+                        country : "Turkey"
+        
+                },
+        
+                getBirthYear : function(){
+        
+                        return 2020-this.age; //this: hangi obje        
+                        içerisinde yazıldıysa o objenin elemanlarını    
+                        getirir.
+        
+                }
+        
+        }; 
+
+
+        
+        //console.log(person);
+        
+        //console.log(typeof person)
+
+
+        
+        val = person.firstName;
+        
+        val = person.lastName;
+        
+    !!  val = person["firstName"]
+        
+        val = person.adress.country;
+        
+        val = person.adress;
+        
+        val = person.hobbies[0]
+        
+        val = person.hobbies;
+        
+        val = person.getBirthYear();
+
+
+        
+        // console.log(val)
+        
+        // console.log(typeof val);
+
+
+        
+        //object in array
+        
+        let people = [
+        
+                {firstName : "Ebubekir", lastName : "Çevik"},
+        
+                {firstName : "Mehmet", lastName : "Şensoy"}
+        
+        ]
+
+
+        
+        console.log(people)
+        
+        console.log(people[1])
+        
+        console.log(people[0].firstName)
+
+
+        
+        for(let i=0; i<people.length; i++){
+        
+                console.log(people[i].lastName)
+        
+        }   
+
+    2)EXAMPLE
+
+        let aracBigileri = [
+                {
+                        id: 'bmw116d_1234',
+                        model: '116d',
+                        yil: 2015,
+                        renk: "white",
+                        servisKayitlari: 
+                        [
+                                {
+                                        id: 'bmw116d_1234_1',
+                                        tarih: '30.01.2016',
+                                        km: 13000,
+                                        toplamUcret: 900,
+                                        servisDetayı: 
+                                        [
+                                                { id: 1, islem: 'yag degisimi', ucret: 300 },
+                                                { id: 2, islem: 'filtre degisimi', ucret: 300 },
+                                                { id: 1, islem: 'fren degisimi', ucret: 300 }
+                                        ]
+                                },
+                                {
+                                        id: 'bmw116d_1234_2',
+                                        tarih: '30.01.2017',
+                                        km: 28000,
+                                        toplamUcret: 1800,
+                                        servisDetayı: 
+                                        [
+                                                { id: 1, islem: 'yag degisimi', ucret: 350 },
+                                                { id: 2, islem: 'filtre degisimi', ucret: 350 },
+                                                { id: 3, islem: 'fren hidroliği', ucret: 300 },
+                                                { id: 4, islem: 'balata değişimi', ucret: 800 }
+        
+                                        ]
+                                }
+                        ]
+        
+                }
+        
+        ]
+        
+        console.log(aracBigileri[0])
+
+--Loops in Array & Objects
+
+    1) for
+        var cars = ['BMW', 'Mercedes', 'Opel']
+        for(let i=0; i<cars.length; i++){
+                console.log(cars[i]);
+        }
+    
+        let people = [
+                {firstName:'Ebubekir', lastName:'Çevik'},
+                {firstName: 'Mehmet', lastName:'Şensoy'},
+                {firstName: 'Fatih', lastName:'Çiçek'}
+        ]
+        for(let i=0; i<people.length; i++){
+                console.log(people[i].firstName)
+        }
+
+    2) for-in
+        var cars = ['BMW', 'Mercedes', 'Opel']
+
+        for(let i in cars)
+        {
+            console.log(`index: ${i} value: ${cars[i]}`)
+        }
+
+        let people = [
+                   {firstName:'Ebubekir', lastName:'Çevik'},
+                   {firstName: 'Mehmet', lastName:'Şensoy'},
+                   {firstName: 'Fatih', lastName:'Çiçek'}
+                ]
+        for(let i in people){
+                console.log(`index: ${i} value: ${people[i].lastName}`)
+        }
+
+    3)foreach
+        var cars = ['BMW', 'Mercedes', 'Opel', 'Toyota']
+
+        cars.forEach(function(item){
+                console.log(item)
+        })
+
+        let people = [
+                   {firstName:'Ebubekir', lastName:'Çevik'},
+                   {firstName: 'Mehmet', lastName:'Şensoy'},
+                   {firstName: 'Fatih', lastName:'Çiçek'}
+                ]
+        people.forEach(function(item){
+                console.log(item.firstName + ' '+ item.lastName)
+        })
+
+    4)map : returns an array
+        let people = [
+                   {firstName:'Ebubekir', lastName:'Çevik'},
+                   {firstName: 'Mehmet', lastName:'Şensoy'},
+                   {firstName: 'Fatih', lastName:'Çiçek'}
+                ]
+        let val = people.map(function(item){
+                return item.firstName + ' ' + item.lastName;
+        })
+        console.log(val);
+
+        let number = [1,2,4,6,7,9]
+        let val2 = number.map(function(item){
+                return item*item
+        })
+        console.log(val2)
+
+--FUNCTIONS
+    1)Function Declarations
+        function yasHesapla( dogumYili){ 
+                return 2020-dogumYili;
+        }
+        let yas = yasHesapla(1995);
+        console.log(yas);   
+
+        function EmekliligeKacYilKaldi(dogumYili, isim){
+                let yas = yasHesapla(dogumYili);
+                let emeklilik = 65-yas; 
+
+                if(emeklilik>0){
+                        console.log(`${isim} emekli olmana ${emeklilik} yıl kaldı`)
+                }else{
+                        console.log('Zaten emekli oldunuz')
+                }      
+        }   
+
+        let yas1 = EmekliligeKacYilKaldi(1995, "Ebubekir")
+        console.log(yas1);  
+
+    2)Function Experission
+        Alternative Function Defination 
+        var yasHesapla = function(dogumYili){
+                return 2020-dogumYili;
+        }
+        console.log(yasHesapla(1995))   
+
+    3)Default Paramaters
+        let sum = function(a=0,b=0){//sum foksiyonunun içine eksik parametre gonderildiğinde, değişkenlerin değerlerinin 'undefined'    olmaması   için default değerleri '0' belirlendi.
+                return a+b;
+        }
+        console.log(sum(3))
+        console.log(sum(3,4))
+        console.log(sum("a","b"))   
+
+    4)"arguments" property
+        function args(){
+                console.log(arguments) //arguments: fonksiyona gonderilen değerleri dizi şekli tutar 
+        }
+        args(1,2,4,8,"bekir")   
+
+        function sumAll(){
+                total=0;
+                for(let i=0; i<arguments.length; i++){
+                        total += arguments[i] // sumAll fonksiyonuna gonderilen parametreler arguments tarafından dizi şeklinde tutulur. dizi   şeklinde tutulduğu içinde toplanabilir. Bu sayede fonksiyonlara kaç tane parametre alacağı belirtilmeden, gonderilen  parametre sayısına gore işlem yapar
+                }
+                return total;
+        }
+        console.log(sumAll(1,2,3))
+
+--WINDOW Object
+    -->Definiton: Window objesi bizim tarayıcımız üzerinde yapmak istediğimiz işlemleri ve pencerenin özelliklerini taşıyan, aslında bir javascript objesi. 
+
+        let value;
+        value = window; // window objesini çıktı olarak verir.
+        value = window.location; // o anki konumunuzu verir sayfa üzerindeki.
+        value = window.location.host; // host bilgisini verir.
+        value = window.location.hostname; // host'un kısa hali hostname         bilgisini verir.
+        value = window.location.port; // sayfanın port'unu verir.
+        value = window.location.href; // o anki url inizi verir tarayıcıda      üstte bulabilirsiniz.
+
+        if(confirm("sayfa yenilensin mi ?")) { // Buradaki if blokları
+          window.location.reload();           // bir confirm sorar ve eğer      true ise 
+        }                                     // sayfayı yeniler. 
+        else {                                // ama false ise
+          console.log("sayfa yenilenmedi");   // Console'a
+        }                                     // sayfa yenilenmedi yazar
+
+        value = window.outerHeight; // o anki pencerenin yüksekliğini belirtir.
+
+        console.log(value);
+
+--SCOPE
+    Scope, ilgili değişkenlere ulaşabildiğimiz alanı temsil eder. Global Scope ve Local Scope (Block Scope ve Function Scope) olmak üzere türleri vardır.
+
+    Global Scope: Fonksiyonların ya da for, if veya while gibi blokların dışında tanımlanan değişkenlerin sahip olduğu Scope türüdür. Bu    değişkenlere her yerden ulaşılabilir.
+    Local Scope: Global Scope’da belirtilen yapıların içerisinde tanımlanmış ve sadece tanımlandığı alan içerisinden ulaşılabilen   değişkenlerin sahip olduğu scope türüdür. ES6 ile gelen let ve const’un sahip olduğu Block Scope ve Function Scope kavramlarını örnekler  üzerinden açıklayacağım.
+
+    ->Var, Let ve Const Arasındaki Farklar
+        ES6 ile gelen let veya const ile tanımlanan değişkenler Function Scope yerine Block Scope içerisinde yer alır. Ayrıca değişkenin aynı isimle yeniden tanımlanmasında var değişkeni ile izin verilirken diğerlerinde buna izin verilmez. Const adından da anlaşılacağı üzere değiştirilmesi istenmeyen sabit değerlerin atanmasında kullanılan anahtar kelimedir. Aralarındaki farkların daha iyi anlaşılması için yaptığım örnekleri inceleyelim.
+        (Orneklerle daha detaylı bak !)
+        (https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801940#overview)
+
+Not: Javascript 'NodeJs' ile browser haricinde masaüstünde de çalışır.  browser da engine sayesinde çalışır. Javascript ile server tabanlı uygulamalar geliştirilebilir
+
+--DOM(Document Object Model)
+
+    1)Document, window objesinin bir alt elemanıdır
+
+    DOM Nedir? (https://biltektasarim.com/blog/html-dom-nedir)
+    Document Object Model(Doküman Nesne Modeli)'in kısaltması olan DOM  dokümanlara erişmek için olan bir W3C standardıdır.
+    DOM dokümandaki nesnelere erişmek ve içeriğini, stilini, yapısını   değiştirmek için kullanılır.
+
+    DOM Yapısı
+    DOM Yapısını bir ağaç olarak düşünebilirsiniz. En tepede yani kökte     HTML etiketi, onun altında ise içerisine yazılmış diğer etiketler   bulunur. Örnek olarak sayfa yapısını DOM yönünden inceleyelim.
+
+    <html>
+    <head>
+        <title></title>
+        <style></style>
+    </head>
+    <body>
+       <div>
+          <p>Biltek Tasarım</p>
+       </div>
+    </body>
+    </html>
+
+    Yukarıda gördüğünüz HTML yapısı aslında şu şekildedir:
+
+    HTML DOM Nedir?
+    HTML için kullanılan doküman nesne modelidir. HTML Elementlerini    objeler olarak, HTML elementlerinin tüm özelliklerini, HTML    elementlerine erişmek için metotları, tüm HTML elementleri için    olayları tanımlar. Diğer bir deyişle HTML DOM yeni elementler eklemek,     elementleri değiştirmek veya silmek için kullanılır.
+
+    HTML DOM Metotları
+    HTML DOM metotları elementler üzerinde uygulayabileceğiniz eylemlerdir.
+    HTML DOM özellikleri ise elementlerin değiştirebileceğiniz veya     ayarlayabileceğiniz değerleridir.
+
+    HTML DOM'a JavaScript ile erişim sağlayabilirsiniz. Örnek olarak    aşağıdaki kod bloklarında p elementinin içerisindeki metni değiştirdik.
+
+    <html>
+    <body>
+
+    <p id="metin">biltektasarim.com</p>
+
+    <script>
+    document.getElementById("metin").innerHTML = "Değiştirilmiş Metin!";
+    </script>
+
+    </body>
+    </html>
+
+    Bu örnekte document. getElementById bir metod, innerHTML ise bir    özelliktir. HTML elemanlarına erişmek için en çok kullanılan yol   getElementById metodudur. Bu metot ile dokümanın içinde verdiğimiz    id'ye sahip elementi bulup üzerinde işlem yapabiliriz.
+
+    HTML DOM Doküman Nesnesi
+    Doküman nesnesi web sitenizi temsil eder. Bir HTML elementine erişmek   için dokümanınıza erişmekle başlamanız gerekir. Aşağıda doküman   nesnesini kullanarak elementlere nasıl erişebileceğiniz hakkında bazı     örnekler verdik:
+
+    document. getElementById(id) - Elementi ID'ye göre seçici
+    document. getElementsByClassName(class) - Sınıfa göre seçici
+    document. getElementsByTagName(etiket) - Etikete göre seçici
+
+    jQuery'de DOM
+    jQuery kullanarak HTML elementlerini daha kolay manipüle    edebilirsiniz. Örnek olarak JavaScript kullanarak bir elementi ID'sine     göre almanın jQuery ile farkı aşağıdaki gibidir.
+    JavaScript: document.getElementById(id);
+    jQuery: $("#id");
+
+    Gördüğünüz gibi jQuery'de bir elementi seçmek JavaScript'te olduğundan  daha kısa ve kolaydır.
+
+
+    Örnekler
+    Örnek 1: Bir a elementinin href özelliğini ve içerisindeki yazıyı   değiştirelim.
+
+    <html>
+    <body>
+
+    <a href="https://www.google.com.tr" id="link">Google</a>
+
+    <script>
+      var a = document.getElementById("link");
+      a.href = "https://www.biltektasarim.com";
+      a.innerHTML = "Biltek Tasarım";
+    </script>
+
+    </body>
+    </html>
+
+    Örnek 2: Bu sefer dokümanımızdaki bir div'e kendimiz JavaScript ile     oluşturduğumuz bir p elementini ekleyelim.
+
+    <html>
+    <body>
+
+    <div class="div"></div>
+
+    <script>
+      var div = document.getElementsByClassName('div')[0]; //Burada     getElementsByClassName bulduğu elementleri bir dizi(array) olarak   döndürür. Bu sebeple biz 0. yani ilk elemanını alıyoruz.
+      var p = document.createElement('p'); //createElement() element    oluşturmak için kullandığımız kod. 
+      p.innerHTML = "Biltek Tasarım";
+
+      div.appendChild(p); //AppendChild kodu bir elementin içerisine    istediğiniz bir elementi eklemeye yarar.
+    </script>
+
+    </body>
+    </html>
+
+    Yani kısacası DOM HTML dokümanını manipüle etmek, dokümana yeni     elementler eklemek, silmek, değiştirmek için kullanılan bir W3C     standardıdır. Web arayüzlerin temel iskeleti DOM yapılarıdır. Yeni  nesil JS kütüphanelerinin(örneğin; React, Vue, Angular) de birçoğu   sadece DOM yapısında güncellemeler yaparak, hızlı sayfa geçişleri ve  daha hoş bir deneyim sağlar.
+
+    //Document Object
+    var val;
+    //val=document//sayfadaki butun html etiketlerini verir
+    val=document.all //sayfadaki Elementleri dizi şeklinde döndürür
+    val=document.all.length// sayfadaki toplam element sayısı
+    val=document.all[6] //dizi içindeki elemente gider
+    val=document.head//head etiketi verir
+    val=document.body//body etiketi verir
+    val=document.anchors//sayfadaki butun 'a' (linkleri) verir
+    val=document.URL//sayfanın adresini verir
+    val=document.domain//sayfanın domain adresini verir
+    val=document.images//sayfaki images ları verir. dizi şeklinde verir
+    val =document.title
+    val= document.scripts//sayfadaki scriptleri dizi şeklinde dondurur
+    val=document.scripts[0].getAttribute('src')//0.scriptin src attribute nin değerini alır
+
+    console.log(val)
+
+--Selecting Element(Element Seçimi)
+    1)Tekil Element Seçimi
+
+    let val;
+    val=document.getElementById('header')// id si 'header' olan elementi verir
+    val=document.getElementById('header').id//secilen elementin id si verir 
+    val=document.getElementById('header').className//elementin class name verir
+    
+    val=document.getElementById('header')
+    val=val.id//secilen elementin id si verir 
+    val=val.className//elementin class name verir
+
+        //1.1)style ozellikleri
+        val=document.getElementById('header')
+        val.style.fontSize = '45px'//font u 45 px yapıldı
+        val.style.color = 'red'
+        //val.style.fontWeight = 'bold'
+
+        //1.2)innerText ve innerHTML
+        val.innerText = 'Ebubekir'//Elementin text i değiştirildi
+        val.innerHTML = '<b>Çevik</b>' //innerHTML de html elementi eklenebilir. Ama innerText yazılan Html etiketleri çalışmaz
+
+        //1.3)querySelector
+        val=document.querySelector('#header')//id si header olan elementi seçer
+        val=document.querySelector('.head')//class head olan elementi seçer
+        val=document.querySelector('div')//div elementlerini seçer
+        val=document.querySelector('#header').style.color='green'//secilen elementin color ını yeşil yapar
+        val=document.querySelector('#header').textContent='asjlkkdd' //elementin text ini değiştirir
+        document.querySelector('.head').classList.add('active')//elementi class ına 'active' ekler
+        document.querySelector('.head').className='blabla'//elementin className ini değiştirir
+
+! HtmlCollection olan arreylerde forEach kullanılamaz for kullanılabilir. NodeList arraylerde forEach kullanılabilir
+
+--Dom Üzerinde Element Ekleme, Silme ve Güncelleme
+    
+    Element Oluşturma(Creating Elements)
+    let val = document.createElement('div')
+    Class Ekleme(add class)
+    val.className = 'div1'
+    Attribute Atama(set attribute)
+    val.setAttribute('title','new item')
+    val.setAttribute('text','I am div')
+    
+    //header id li elemente div1 classlı div elementi eklenir
+    document.querySelector('#header').appendChild(val)
+    
+    Silme
+    var val=document.querySelector('.head1')
+    val.remove();//Element Dom üzerinde silinir
+    
+    Not: Ekleme, silme ve güncelleme işlemlerinin farklı varyasyonları var. (Ayrıca bknz: Elementlerin javascriptte dinamik olarak eklenmesi, silinmesi ve güncellenmesi) 
+
+--EVENTS
+
+    1) Event Listener Kullanımı
+    var btn = document.querySelector('#btn')
+    btn.addEventListener('click', function(){ //Event ve function yazılır
+        console.log('button clicked')
+    })
+
+        1.1) Dışarıdan fonksiyon eklenebilir. Bu sayede bir fonksiyon surekli kullanılabilir
+        var btn = document.querySelector('#btn')
+        function btnClick(){
+            console.log("btn clicked")
+        }
+        btn.addEventListener('click', btnClick);
+
+            Example
+            var btn = document.querySelector('#btn')
+            function btnClick(){
+                console.log("btn clicked")
+            }
+            function btnClick2(){
+                console.log("btn clicked 2")
+            }
+            btn.addEventListener('click', btnClick);
+            btn.addEventListener('click', btnClick2);
+            bir event te 2 fonksiyon çalıştrıldı
+
+        1.2) Event Objesi
+        var btn = document.querySelector('#btn')
+        btn.addEventListener('click', function(e){ //fonksiyonda içinde event objesi gonderilir.    herhangi bir isim verilebilir e den farklı olarak
+            let val = e;
+            val = e.target //'e' event objesinin target property si kullanıldı. Target, hangi elemente  tıklanıldığnı gosterir 
+            val=e.target.id; //tıklanan objenin id sını verir
+            val=e.type //çalışan event tipini verir
+            console.log(val)
+        })
+
+    2)  Mouse Events 
+    Example 1: Click
+    var btn = document.querySelector('#btn')
+    function eventHandler(event){
+        console.log(`Evet Type: ${event.type}`)
+    }
+    btn.addEventListener('click', eventHandler);
+
+    Example 2: Double Click : Çift Tıklama çalışr
+    var btn = document.querySelector('#btn')
+    function eventHandler(event){
+        console.log(`Evet Type: ${event.type}`)
+    }
+    btn.addEventListener('dblclick', eventHandler);
+
+    Example 3: Mouse Down : basıldığında çalışır
+    var btn = document.querySelector('#btn')
+    function eventHandler(event){
+        console.log(`Evet Type: ${event.type}`)
+    }
+    btn.addEventListener('mousedown', eventHandler);
+
+    Example 4: Mouse Up : basılıp çekildiğinde çalışır
+    var btn = document.querySelector('#btn')
+    function eventHandler(event){
+        console.log(`Evet Type: ${event.type}`)
+    }
+    btn.addEventListener('mouseup', eventHandler);
+
+    Example 5: Mouse Over : imleç üzerine geldiğinde
+    var btn = document.querySelector('#btn')
+    function eventHandler(event){
+        console.log(`Evet Type: ${event.type}`)
+    }
+    btn.addEventListener('mouseover', eventHandler);
+
+    3) Keyboard Events
+    let input = document.querySelector('#txt')
+    function eventHandler(e){
+        console.log('event type: ' + e.type) //eventin tipinin verir
+        console.log('key code: ' + e.keyCode) //girilen harfin ascii karşılığnı verir
+        console.log('value: ' + e.target.value) //girilen harfin ascii karşılığnı verir
+    }
+    input.addEventListener('keydown',eventHandler)//tuşa basıldığında çalışır
+    input.addEventListener('keyup',eventHandler)//tuşa basılıp çekildiğinde çalışır
+
+        Example
+        let input = document.querySelector('#txt')
+        function eventHandler(e){
+            console.log('event type: ' + e.type) //eventin tipinin verir
+            e.target.style.backgroundColor = 'yellow' //text in içine tıklandığında rengini değiştirir
+        }
+        input.addEventListener('focus', eventHandler)
+
+--STORAGE
+    Storage ler 2 çeşittir;
+        1)Local Storage: Tarayıcı geçmişi temizlenene ya da tarayıcı tamamen silinene kadar tuttuğu bilgileri saklamaktadır.
+        2)Session Storage: Tarayıcı kapandığı andan itibaren tuttuğu bilgiyi silmektedir.
+
+    Ortak Özellikler
+    * Her ikisi de kullanıcı bilgisayarında tutulur.
+    * Key, value string tipinde değer alırlar.
+    Storageler çerez mantığı ile çalışmaktadır. Aralarındaki en büyük farklardan biri performans farkıdır.
+    * Depolama boyutu storagelerde sınırsızken çerezlerde maksimum 4KB’a kadar çıkabilmektedir.
+    * Çerezler HTTP request ile iletilebilir fakat storagelerin her ikisinde de iletilmez.
+    * Çerezlerin bir son kullanım tarihi varken storagelerde bir kullanım tarihi yoktur.
+
+    Local ve Session Storage Kullanımı: Local ve Session Storage kullanımları aşağıdaki gibidir.
+    
+    setItem()
+    localStorage.setItem(key, value);
+    sessionStorage.setItem(key, value);
+    Storagelere ‘key’ ile bir anahtar sözcük ve ‘value’ ile bir değer atayarak veriyi depolarız.
+    getItem()
+    localStorage.getItem(key);
+    sessionStorage.getItem(key);
+    Tuttuğumuz veriyi sadece verdiğimiz ‘key’ ile çağırmak okurken bize yeterli olacaktır.
+    removeItem()
+    localStorage.removeItem(key);
+    sessionStorage.removeItem(key);
+    ‘key’ini belirttiğimiz veriyi silmemize yarar.
+    clear()
+    localStorage.clear();
+    sessionStorage.removeItem(key);
+    Tüm Storage’i temizlemek için kullanılır.
+
+    1) Local Storage 
+        1.1) Set Item: İtem ekler
+            const firstName = localStorage.setItem('firstName', 'Ebubekir');
+            const lastName = localStorage.setItem('lastName', 'Cevik')
+
+            console.log(localStorage)
+
+        1.2) Get Item: Itemleri alır
+            const val = localStorage.getItem('firstName')
+            const val2 = localStorage.getItem('lastName')
+            console.log(val + ' ' + val2)
+
+        1.3)Remove Item: İtemleri siler
+            localStorage.removeItem('firstName')
+            localStorage.removeItem('lastName')
+            console.log(localStorage)
+
+        1.4)Clear
+            localStorage.clear();
+            console.log(localStorage)
+
+        1.5) For the arrays
+            1.5.1) Set Item
+                let hobies = ['yuzmek', 'koşmak', 'yemek yemek']
+                localStorage.setItem('hobies', hobies) //string şeklinde ekler
+                localStorage.setItem('hobies', JSON.stringify(hobies)) //dizi şeklinde ekler
+                console.log(localStorage)
+
+            1.5.2) Get Item
+                let val = JSON.parse(localStorage.getItem('hobies'))
+                console.log(val)
+                
+    2) Session Storage
+        const city = sessionStorage.setItem('city', 'Istanbul')
+        const city = sessionStorage.setItem('country', 'Turkey')
+        console.log(sessionStorage)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

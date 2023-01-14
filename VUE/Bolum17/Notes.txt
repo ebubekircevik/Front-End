@@ -1,0 +1,3 @@
+1) Vue Router yuklenmesi; "npm install --save vue-router"ls
+
+!) vue-router yuklerken hata alabilisin. bu durumun onune versiyon yukleyerek geçebilirsin; "npm install vue-router@3 --save"

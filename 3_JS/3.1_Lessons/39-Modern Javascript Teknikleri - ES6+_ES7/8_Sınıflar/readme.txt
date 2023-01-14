@@ -1,0 +1,1 @@
+https://www.muratoner.net/javascript/javascript-class-nedir-nasil-tanimlanir-ve-kullanilir

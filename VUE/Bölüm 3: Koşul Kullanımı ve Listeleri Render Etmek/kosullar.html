@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Bolum 3</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="show">Beni Görebilirsin!</p>
+        <p v-else>Beni görebilir misin acaba? :)</p>
+        <button @click="show = !show">Göster/Gizle</button>
+
+        <p v-if="sayi < 10">Sayı 10'dan küçüktür</p>
+        <p v-else-if="sayi > 10">Sayı 10'dan büyüktür</p>
+        <p v-else>Sayı 10'a eşittir</p>
+        <hr>
+        <button @click="showParagh = !showParagh">Göster/Gizle</button>
+        <p v-show="showParagh">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, quos, voluptatem. Hic
+            facilis, soluta mollitia repellendus maxime ab incidunt minus rerum, voluptate, inventore iure veritatis.
+            Vel quae dolore, magni dignissimos.</p>
+
+            <!--show elementi elementi sayfa uzerinde display: none; eder. v-if ise elementi sayfadan komple kaldırır-->
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                show: false,
+                sayi: 15,
+                showParagh: false
+            }
+        })
+    </script>
+</body>
+</html>

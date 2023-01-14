@@ -1,0 +1,14 @@
+table thead tr{
+    background-color:   blue;
+    color: white;
+}
+th, td{
+    text-align: center;
+}
+table tbody tr:nth-of-type(even){
+    background-color: rgb(247, 244, 244);
+}
+table tbody tr:hover{
+    background-color: rgb(179, 168, 168);
+}
+

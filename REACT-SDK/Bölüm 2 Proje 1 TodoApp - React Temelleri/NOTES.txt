@@ -1,0 +1,77 @@
+1) Babel jsx soz dizimlerini çevirmenin yanında ES6 ile yazılan kodu ES5 çevirir.
+  -Babel Kurulumu
+    ! terminalde projenin bulunduğu aynı soz dizimi altında olduğundan emin olunmalı
+    1) npm init -y
+    2) npm install --save-dev @babel/core @babel/cli 
+      (ilgili surumun yuklenmesi; npm install --save-dev @babel/core@7.10.5 @babel/cli@7.10.5)
+    3) Preset Kurulumu;
+        - npm install --save-dev @babel/preset-env (ilgili surumun yuklenmesi; npm install --save-dev @babel/preset-env@7.10.4)
+        - npm install --save-dev @babel/preset-react (ilgili surumun yuklenmesi; npm install --save-dev @babel/preset-react@7.10.4)
+    4) Ana dizin içerisinde .babelrc dosyası oluşturulup presetler tanımlanmalı
+        {
+          "presets": ["@babel/preset-env","@babel/preset-react"]
+        }
+
+    5) npx babel --help 
+        babel kodları bilgisini verir
+
+    6) npx babel [kaynak dosyası] --out-file=[hedef dosya] 
+      npx babel src/app.js --out-file=public/scripts/app.js
+
+    7) Değişiklikleri anında yansıtır
+      npx babel src/app.js --out-file=public/scripts/app.js --watch
+      
+
+2) projeler github tan alındığında node_modules klasoru olmayacağı için dosya alındığında npm install komutu çalıştırılmalı
+ 
+3) .babelrc dosyası projeye eklemeli
+    Bir önceki dersimizde babel ayarlarını yaptık ve projeye .babelrc dosyasını ekledik. Bu aşamadan sonra    derste hazırladığımız projeleri ders altından indirdiğinizde mutlaka .babelrc dosyasını ekleyip çalıştırınız aksi halde bu dosya projede olmadığından  dolayı hata alacaksınız.
+
+    .babelrc dosyasının içeriği;
+
+    {
+        "presets" : ["@babel/preset-env","@babel/preset-react"]
+    }
+    İyi çalışmalar dilerim.
+
+4) Uygulamanın ilk çalıştırılması;
+    1) live-server public/index.html (dosya  yolu)
+    2) npx babel src/app.js --out-file=public/scripts/app.js 
+        //Altenatif; npx babel src/app.js --out-file=public/scripts/app.js --watch
+
+    Bu komutlar ayrı olarak terminal ekranına da girilebilir. Yada package.json dosyasının içine de eklenebilir.
+    scripts alanına aşağıdaki gibi eklenebilir;
+
+      "start": "live-server public", //public dosyası altındaki html dosyasını çalıştırmak istediğimiz için public girildi
+      "babel":"npx babel src/app.js --out-file=public/scripts/app.js --watch"
+
+      Örnek;
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "live-server public", 
+        "babel":"npx babel src/app.js --out-file=public/scripts/app.js --watch"
+      }
+
+      Daha sonrada terminal ekranından;
+       npm run babel
+      komutu girilir.
+      
+      Ayrı bir terminalde de;
+        npm run start
+      komutu girilir.
+
+5) react emmet eklentisi için(intellisense) settings.json dosyasına 
+      "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+      }
+    şeklinde eklenmeli.
+
+6) Değişkene birden fazla element girildiyse bir kapsayıcı(container) element  olmak zorudan
+
+7) {} içindeki ifade expression ın değerini basar
+
+8) function yeni bir scope oluşturur fakat arrow function kendisine yeni bir scope oluşturmaz.
+
+
+
+

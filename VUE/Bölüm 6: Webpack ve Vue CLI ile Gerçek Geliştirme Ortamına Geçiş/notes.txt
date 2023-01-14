@@ -1,0 +1,5 @@
+create workflow: vue init templateName projectName
+    vue init webpack-simple vue-cli-intro
+
+run workflow : npm run dev
+

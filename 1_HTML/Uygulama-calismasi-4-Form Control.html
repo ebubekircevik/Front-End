@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>First Page</title>
+</head>
+<body>
+    <form action="/Home/Register">
+        <p>Ad : <input type="text" name="ad" placeholder="adınızıgiriniz" required></p>
+        <p>Soyad : <input type="text" name="soyad"></p>
+        <p>Email : <input type="email" name="email"></p>
+        <p>Beni Hatırla : <input type="checkbox" name="benihatırla"></p>
+        <p>
+            Erkek <input type="radio" name="cinsiyet">
+            Kadın <input type="radio" name="cinsiyet">
+        </p>
+        <p>
+            Hobiler <br>
+            Sinema : <input type="checkbox" name="hobi">
+            Spor : <input type="checkbox" name="hobi">
+            Kitap Okumak : <input type="checkbox" name="hobi">
+        </p>
+        <p>
+            <select name="sehir">
+                <option disabled selected hidden >seçiniz</option>
+                <option>İstanbul</option>
+                <option>Ankara</option>
+                <option>İzmir</option>
+            </select>
+        </p>
+        <!--Search input types-->
+        <p>
+            <select multiple name="sehirler">
+                <option>İstanbul</option>
+                <option>Ankara</option>
+                <option>İzmir</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Kaydet">
+            <input type="reset">
+        </p>
+    </form>
+</body>
+</html>

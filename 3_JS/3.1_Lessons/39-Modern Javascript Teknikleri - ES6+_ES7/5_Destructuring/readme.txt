@@ -1,0 +1,1 @@
+https://medium.com/@emrahday/javascriptde-destructuring-hikayesi-bf5884ed1fa5

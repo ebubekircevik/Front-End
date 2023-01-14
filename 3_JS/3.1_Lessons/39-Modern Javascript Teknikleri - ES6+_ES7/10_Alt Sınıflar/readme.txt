@@ -1,0 +1,1 @@
+https://yazilim.cevapsitesi.com/Makaleler/70/javascript-sinif-bildirimleri-class-declarations-ile-sinif-tanimlama

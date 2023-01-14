@@ -1,0 +1,17 @@
+create workflow: vue init templateName projectName
+    vue init webpack-simple vue-cli-intro
+
+run workflow : npm run dev
+
+# vue-cli
+
+> Vue Projesiin Projenin olduğu yere gelerek
+
+# bağımlılıkları yüklemek için
+npm install
+
+# uygulamayı çalıştırmak için
+npm run dev
+
+# projeyi production ortamına derlemek için
+npm run build

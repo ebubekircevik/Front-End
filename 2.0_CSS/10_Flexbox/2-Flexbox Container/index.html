@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flexbox</title>
+	<style>
+	
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.container {
+			display: flex;
+      // flex-direction: row; /*itemları satır yapar. default değerdir*/
+			// flex-direction: row-reverse; /*itemları satır yapar ve tersten hizlar item 8, item 7 ...item 1*/
+			// flex-direction: column; /*itemları kolon yapar*/
+			// flex-direction: column-reverse; /*itemları kolon yapar ve tersten hizlar item 8, item 7 ...item 1*/
+			// flex-wrap: nowrap; /*butun itemları aynı satıra basar. default değerdir*/
+			// flex-wrap: wrap; /*satıra sığmayan elemanları alt satıra atar*/
+			flex-wrap: wrap-reverse; /*satıra sığmayan elemanları alt satıra atar ve tersten hizlar item 8, item 7 ...item 1*/
+			background-color: #f2f2f2;
+			padding: 15px;
+		}
+		
+		.item {
+			background-color: chocolate;
+			padding: 30px;
+			margin: 30px;
+			color: #fff;
+			font-size: 25px;
+		}
+	
+	
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		
+		<div class="item">item 1</div>
+		<div class="item">item 2</div>
+		<div class="item">item 3</div>
+		<div class="item">item 4</div>
+		<div class="item">item 5</div>
+		<div class="item">item 6</div>
+		<div class="item">item 7</div>
+		<div class="item">item 8</div>
+		
+		
+	</div>
+	
+	
+</body>
+</html>

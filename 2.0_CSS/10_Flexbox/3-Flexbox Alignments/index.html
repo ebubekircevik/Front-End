@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flexbox</title>
+	<style>
+	
+		* {
+			margin: 0;
+			padding: 0;
+      color: rgb(60, 75, 160);
+		}
+		
+		.container {
+			
+			height: 1200px;
+			
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+      // justify-content: center; /*itemları containerin içinde ortalar*/
+			// justify-content: flex-start; /*itemları containerin içinde sola hizalar*/
+			// justify-content: flex-end; /*itemları containerin içinde sağa hizalar*/
+			// justify-content: space-between; /*itemlar arasına eşit boşluklar verir*/
+			// justify-content: space-around; /*itemlar arası 2x, item ve container arası x boşluk bırakır*/
+			// justify-content: space-evenly; /*itemlar arası ve item-container arası eşit bir şekilde(x) boşluk bırakır*/
+			
+			// align-items: stretch; /*bir elemana verilen yuksekliği butun elemanlara uygular*/
+			// align-items: center; /*bir elemana verilen yuksekliği butun elemanlara uygulanmamasını sağlar*/
+			// align-items: flex-start;
+			 align-items: flex-end;
+			// align-items: baseline; /*bu ozellikleri anlamak için videoları izle*/
+			
+			
+			background-color: #f2f2f2;
+			padding: 15px;
+		}
+		
+		.item {
+			background-color: chocolate;
+			padding: 30px;
+			margin: 30px;
+			color: #fff;
+			font-size: 25px;
+		}
+		
+		.i2 {
+			height: 200px;
+		}
+		
+		.i3 {
+			height: 300px;
+		}
+		
+		.i4 {
+			font-size: 60px;
+		}
+	
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		
+		<div class="item">item 1</div>
+		<div class="item">item 2</div>
+		<div class="item i3">item 3</div>
+		<div class="item i4">item 4</div>		
+		
+	</div>
+	
+	
+</body>
+</html>

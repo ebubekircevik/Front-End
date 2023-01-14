@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+	<h1> {{ title }} </h1>
+	<hr>
+	<input type="text" v-on:input="changeTitle">
+	<p> {{ description }} </p>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+	el : "#app",
+	data : {
+		title : "Merhaba VideoSınıf | Vue.js Eğitimi",
+		description : "Bu bir açıklamadır."
+	},
+	methods : {
+		changeTitle : function(event){
+			this.description = event.target.value;
+		}
+	}
+});
+</script>
+
+</body>
+</html>

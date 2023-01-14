@@ -1,0 +1,1 @@
+https://kodlamaklazim.com/blog/senkron-ve-asenkron-programlama-nedir

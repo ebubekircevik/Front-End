@@ -1,0 +1,159 @@
+1) Emmet eklentisi kısa yolları
+2)VS Code: shift+alt+F : kod satrıları duzenleme
+3) web sitesiin arama motorları üzerinde bulunuabilmesi için <meta> etiketleri kullanılır
+    ( <meta name="title" content="Araç kiralama"> )
+    ( <meta name="keywords" content="Araç kirala, uygun araç kiralama"> )
+    ( <meta name="description" content="7/24 araç kiralanır"> )
+4)Element:
+    1)İn line Elements --> span
+    2)Block Elements --> div
+
+!)Arama motorları h1 başlıklarına gore tarar. Dolayısıyla aramalarda    gosterilebilmesi için sayfada bir tane h1 etiketi olmalı.
+
+5)Yazı Biçimlendirme:
+    Html sayfalarımızda kullanabileceğimiz bazı biçimlendirme etiketleri kullanımları aşağıdaki gibidir.
+
+    <b> ve <strong>  : Yazı koyulaştırma için 2 etiket kullanıyoruz. <b> ve     <strong> etiketleri.
+
+    <i> ve <em> :  Yazıları italic hale çevirmek için 2 etiket  kullanıyoruz. <i> ve <em> etiketleri.
+
+    <u> ve <ins> :  Yazıların altını çizmek için 2 etiket kullanıyoruz. <i>     ve <em> etiketleri.
+
+    ** <strong> ve <em> etiketlerinin eş değerlerinden anlamsal olarak  farklılıkları vardır. Mantıksal olarak daha önemli içerikler için bu     iki etiketi kullanırız.
+
+    <mark> : vurgulanmak istenen text için kullanılır.
+
+    <small>  : Daha küçük yazı yazmak için kullanılır. 
+
+    <h1> 
+          Komple Uygulamalı Web Geliştirme Eğitimi <small>Frontend ve   Backend</small> 
+    </h1>
+    
+    <del> : Üstü çizili yazı yazmak için kullanılır. Genelde eski   fiyatların üstünü çizmek için.
+
+    <sup> ve <sub> : karakterleri üste yada alta almak için kullanılır.
+
+6)Sırasız Listeler
+    <ul>
+		<li>
+			<p>Lorem ipsum dolor.</p>
+			
+			<ul>
+				<li>
+				    alt eleman
+				    <ul>
+				       <li>alt eleman</li>
+				       <li>alt eleman</li>
+			        </ul>
+				</li>
+				<li>alt eleman</li>
+			</ul>
+			
+		</li>
+		<li>
+			<p>Lorem ipsum dolor.</p>
+		</li>
+		<li>
+			<p>Lorem ipsum dolor.</p>
+		</li>
+		
+		
+	</ul>
+
+7)Sıralı Listeler
+    <ol start="1" type="i">
+		<li>
+		   Lorem ipsum dolor.
+		   <ol>
+		   	<li>eleman 1</li>
+		   	<li>eleman 2</li>
+		   	<li>eleman 3</li>
+		   </ol>
+		</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+		<li>Lorem ipsum dolor.</li>
+	</ol>
+
+8)image kullanımı 
+	<img src="images/istanbul.jpg"  width="500px" height="280" alt="istanbul">
+    <img src="https://im.haberturk.com/2019/10/31/ver1581411749/2536236_1920x1080.jpg" width="500px" height="280" alt="galata">
+
+9)Form kullanımı	
+	<form action="/Home/Register"> <!--form içerisindeki verileri action alanındaki adrese gonderir-->
+        <label for="name">Ad</label>
+        <input type="text" placeholder="Adınızı Giriniz" id="name" required><br><br>
+        <label for="lastname">Soyad</label>
+        <input type="text" placeholder="Soyadınızı Giriniz" id="lastname" required><br><br>
+        <label for="mail">Eposta</label>
+        <input type="email" id="mail" required><br><br>
+        <label for="rememberMe">Beni hatırla</label>
+        <input type="checkbox" id="rememberMe"><br><br>
+        <label for="male">Erkek</label>
+        <input type="radio" id="male" name="gender">
+        <label for="female">Kadın</label>
+        <input type="radio" id="femlae" name="gender">
+        <p>Hobiler</p>
+        <label for="cinema">Sinema</label>
+        <input type="checkbox" id="cinema">
+        <label for="sport">Spor</label>
+        <input type="checkbox" id="sport">
+        <label for="readBook">Kitap Okumak</label>
+        <input type="checkbox" id="readBook"><br><br>
+        <select name="sehir" id="city">
+            <option value="istanbul">İstanbul</option>
+            <option value="ankara">Ankara</option>
+        </select>
+        <br><br>
+        <select multiple name="sehirler" id="cities">
+            <option>Istanbul</option>
+            <option>Ankara</option>
+            <option>Izmir</option>
+        </select>
+    </form>
+
+10)Table kullanımı
+	<table border="2" width=50%>
+        <thead>
+            <tr><!--Table Row-->
+                <th>Ad</th><!--Table Header-->
+                <th>Soyad</th>
+                <th>Şehir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ebubekir</td><!--Table Data-->
+                <td>ÇEVİK</td>
+                <td>Yozgat</td>
+            </tr>
+            <tr>
+                <td colspan="2">Mehmet Şensoy</td>
+                <td rowspan="2">Kastamonu</td>
+            </tr>
+            <tr>
+                <td>Ahmet</td>
+                <td>Şensoy</td>
+            </tr>
+        </tbody>
+    </table>
+
+11) Link kullanımı
+	<a target="blank" href="https://www.google.com/search?q=fred+%C3%A7akmakta%C5%9F&source=lmns&bih=722&biw=1536&hl=tr&sa=X&ved=2ahUKEwiGv_7ZobzsAhUa_6QKHQMMCuUQ_AUoAHoECAEQAA"><img src="images/fred.jpg" alt="Fred Çakmaktaş" width="200" height="200"></a>
+
+12) Div ve Span Kullanımı: Div blok, span inline elementtir.
+
+13)Semantic Elements: Arama motorlarının sayfaları daha tanımlayıp ve bulacağı taglerdir.
+
+	<header></header>
+	<aside>	</aside>
+	<main></main>
+	<footer></footer>
+
+	More Information for Link: https://www.w3schools.com/html/html5_semantic_elements.asp#:~:text=A%20semantic%20element%20clearly%20describes,%3E%20%2D%20Clearly%20defines%20its%20content.
